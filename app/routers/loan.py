@@ -28,3 +28,18 @@ def create_loan(request: LoanBase, db: Session = Depends(get_db), current_user: 
     db.commit()
     db.refresh(new_loan)
     return new_loan
+
+
+@router.get('/{id}')
+def get_loan(id: int):
+    pass 
+
+
+@router.put('/{id}', status_code=201, response_model=Loan)
+def update_loan(id: int):
+    pass 
+
+
+@router.delete('/{id}')
+def delete_loan(id: int):
+    pass
