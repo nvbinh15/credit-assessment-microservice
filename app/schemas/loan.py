@@ -1,6 +1,7 @@
 from typing import Optional 
 from pydantic import BaseModel
 from enum import Enum 
+from fastapi import Query
 
 
 class LoanStatus(str, Enum):
@@ -17,7 +18,7 @@ class LoanPrediction(str, Enum):
 class LoanBase(BaseModel):
     description: Optional[str]
     amount: Optional[int] 
-    term: Optional[int] # by month
+    term: Optional[int] = Query(None, description="Loan term by day")
     coapplicant_income: Optional[int] = 0
     status: Optional[LoanStatus] = LoanStatus.pending
 

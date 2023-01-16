@@ -24,4 +24,4 @@ How to find relevant datasets to build our model.
 
 ## What's next for Loan Management and Credit Assessment Microservice
 
-As our Loan Management backend gets data from users, that data can be used to enhance our prediction model. For further improvement of our microservice, we can add an online learning component to train our models in real-time. 
+As our Loan Management backend gets data from users, that data can be used to enhance our prediction model. For further improvement of our microservice, we can build a data pipline and add an online learning component to train our models in real-time. 

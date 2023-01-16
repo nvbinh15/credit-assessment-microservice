@@ -17,9 +17,9 @@ class User(Base):
     dependents = Column(Integer)
     graduated = Column(Boolean)
     is_self_employed = Column(Boolean)
-    income = Column(Integer)
+    monthly_income = Column(Integer)
     property_area = Column(String)
-    credit_bucket = Column(String)
+    credit_type = Column(String)
 
     loans = relationship('Loan', back_populates='owner')
     

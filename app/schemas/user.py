@@ -23,14 +23,10 @@ class Gender(str, Enum):
     female = 'female'
 
 
-class CreditType(IntEnum):
-    poor = 0
-    standard = 1
-    good = 2
-
-
-class Education(str, Enum):
-    pass 
+class CreditType(str, Enum):
+    poor = 'poor'
+    standard = 'standard'
+    good = 'good'
 
 
 class PropertyArea(str, Enum):
@@ -47,7 +43,7 @@ class Profile(BaseModel):
     dependents: Optional[int] = 0
     graduated: Optional[bool]
     is_self_employed: Optional[bool] = False 
-    income: Optional[int] 
+    monthly_income: Optional[int] 
     property_area: Optional[PropertyArea]
     credit_bucket: Optional[CreditType]
 
