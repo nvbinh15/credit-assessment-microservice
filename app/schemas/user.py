@@ -34,20 +34,28 @@ class Education(str, Enum):
 
 
 class PropertyArea(str, Enum):
-    pass 
+    rural = 'rural'
+    semiurban = 'semiurban'
+    urban = 'urban'
 
 
-class UserProfile(User):
+class Profile(BaseModel):
+    full_name: Optional[str]
     age: Optional[int]
-    gender: Gender = Gender.male
-    is_married: bool = True  
-    dependents: int = 0
-    education: Education 
-    is_self_employed: bool = False 
-    income: int 
-    property_area: PropertyArea
-    coapplicant_income: int = 0
-    credit: Optional[CreditType]
+    gender: Optional[Gender] = Gender.male
+    is_married: Optional[bool] = True  
+    dependents: Optional[int] = 0
+    graduated: Optional[bool]
+    is_self_employed: Optional[bool] = False 
+    income: Optional[int] 
+    property_area: Optional[PropertyArea]
+    credit_bucket: Optional[CreditType]
 
     class Config:
         orm_mode = True 
+
+
+class UserProfile(User, Profile):
+    
+    class Config:
+        orm_mode = True

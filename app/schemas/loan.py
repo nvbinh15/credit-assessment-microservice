@@ -1,28 +1,40 @@
 from typing import Optional 
 from pydantic import BaseModel
-from enum import IntEnum 
+from enum import Enum 
 
 
-class LoanStatus(IntEnum):
-    pending = 0
-    accepted = 1
-    rejected = -1 
+class LoanStatus(str, Enum):
+    pending = 'pending'
+    accepted = 'accepted'
+    rejected = 'rejected'
 
 
-class LoanPrediction(IntEnum):
-    accepted = 1
-    rejected = -1 
+class LoanPrediction(str, Enum):
+    accepted = 'accepted'
+    rejected = 'rejected'
         
 
 class LoanBase(BaseModel):
-    amount: int 
-    term: int # by month
-    prediction: bool 
-    status: LoanStatus = LoanStatus.pending
+    description: Optional[str]
+    amount: Optional[int] 
+    term: Optional[int] # by month
+    coapplicant_income: Optional[int] = 0
+    status: Optional[LoanStatus] = LoanStatus.pending
+
+    class Config:
+        orm_mode = True 
 
 
 class Loan(LoanBase):
     id: int
+    user_id: int 
+
+    class Config:
+        orm_mode = True
+
+
+class LoanWithPred(BaseModel):
+    prediction: bool 
 
     class Config:
         orm_mode = True
