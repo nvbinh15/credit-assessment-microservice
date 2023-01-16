@@ -3,7 +3,8 @@ from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
 
 from app import models
-from app.schemas.user import User, UserCreate
+from app.schemas.user import User, UserCreate, UserProfile
+from app.utils.oauth2 import get_current_user
 from app.database import get_db
 from app.utils.security import verify_password, get_hashed_password, create_access_token
 
@@ -34,4 +35,3 @@ def login(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(
         data={'sub': user.email}
     )
     return {'access_token': access_token, 'token_type': 'bearer'}
-
