@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from .routers import authentication, profile, loan, credit
-from . import models
-from .database import engine
+from app.routers import authentication, profile, loan, credit
+from app import models
+from app.database import engine
 
 app = FastAPI(
     title="CreditAPI",

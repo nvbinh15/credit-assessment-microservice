@@ -1,4 +1,4 @@
-from .load import get_loan_model_scaler, get_credit_model_scaler
+from app.ml.load import get_loan_model_scaler, get_credit_model_scaler
 import pandas as pd
 from app.schemas.credit import LoanPredictionRequest, CreditClassificationRequest, CreditMix, PayMentMinAmtType
 from app.schemas.user import CreditType, Gender, PropertyArea

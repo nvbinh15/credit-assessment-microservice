@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-from .loan import LoanStatus, LoanPrediction
-from .user import Gender, CreditType, PropertyArea
+from app.schemas.loan import LoanStatus, LoanPrediction
+from app.schemas.user import Gender, CreditType, PropertyArea
 from enum import Enum
 
 
