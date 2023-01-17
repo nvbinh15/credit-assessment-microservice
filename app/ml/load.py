@@ -14,7 +14,7 @@ import numpy as np
 def get_loan_model_scaler():
     loan_scaler = MinMaxScaler()
 
-    df = pd.read_csv('data/loan-prediction.csv')
+    df = pd.read_csv('app/ml/data/loan-prediction.csv')
     df.drop(columns=['Loan_ID'], inplace=True)
     for column in df.columns:
         if df[column].dtypes == 'object' or column in ['Credit_History', 'Loan_Amount_Term']:
@@ -37,7 +37,7 @@ def get_loan_model_scaler():
     return loan_model, loan_scaler
 
 
-train_df = pd.read_csv(f'data/credit-score/train.csv', low_memory=False)
+train_df = pd.read_csv(f'app/ml/data/credit-score/train.csv', low_memory=False)
 train_df.drop(
     columns=[
         'ID', 'Customer_ID', 'Month', 'SSN', 'Name', 'Occupation', 'Credit_Utilization_Ratio', 'Payment_Behaviour',
